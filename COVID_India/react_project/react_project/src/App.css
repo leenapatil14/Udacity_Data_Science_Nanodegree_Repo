@@ -1,0 +1,17 @@
+.alignCenter {
+  text-align: center;
+}
+.container{
+  margin-top:60px;
+  margin-left:70px
+}
+.padding0{
+  padding: 0 !important;
+}
+.padding10{
+  padding: 10px !important;
+}
+.padding10per{
+  padding: 10% !important;
+}
+
