@@ -1,0 +1,1 @@
+from covidIndiaApp import app
