@@ -4,28 +4,28 @@ import plotly.express as px
 df_testing=pd.read_csv('data/StatewiseTestingDetails.csv')
 df_cases=pd.read_csv('data/covid_19_india.csv')
 world_time_series=pd.read_csv('data/johns-hopkins-covid-19-daily-dashboard-cases-over-time.csv')[['country_region','last_update','confirmed','iso3']].dropna()
-dates=world_time_series['last_update'].unique().tolist()[:4]
+dates=world_time_series['last_update'].unique().tolist()
 countries=world_time_series['country_region'].unique().tolist()
-    
-custom_df=pd.DataFrame(columns=['date','country','iso3','cases','hovertext'])
-ind=0
-for date in dates:
-    for country in countries:
-        row_=world_time_series.query('country_region==@country and last_update==@date')
-        d={}
-        if country=='US':
-            #print(date,country,'USA',":",row_['confirmed'].sum())
-            cases=int(max(row_['confirmed']))
-            text_=str(country)+":"+str(cases)
-            d = {'date': date, 'country': country,'iso3':'USA','cases':cases,'hovertext':text_}
-        else:
-            #print(date,country,row_['iso3'],row_['confirmed'])
-            cases=int(row_['confirmed'].values[0])
-            text_=str(country)+":"+str(cases)
-            d = {'date': date, 'country': country,'iso3':row_['iso3'].values[0],'cases':cases,'hovertext':text_}
+custom_df   =pd.read_csv('data/output.csv')
+# custom_df=pd.DataFrame(columns=['date','country','iso3','cases','hovertext'])
+# ind=0
+# for date in dates:
+#     for country in countries:
+#         row_=world_time_series.query('country_region==@country and last_update==@date')
+#         d={}
+#         if country=='US':
+#             #print(date,country,'USA',":",row_['confirmed'].sum())
+#             cases=int(max(row_['confirmed']))
+#             text_=str(country)+":"+str(cases)
+#             d = {'date': date, 'country': country,'iso3':'USA','cases':cases,'hovertext':text_}
+#         else:
+#             #print(date,country,row_['iso3'],row_['confirmed'])
+#             cases=int(row_['confirmed'].values[0])
+#             text_=str(country)+":"+str(cases)
+#             d = {'date': date, 'country': country,'iso3':row_['iso3'].values[0],'cases':cases,'hovertext':text_}
         
-        custom_df.at[ind, :] = d
-        ind+=1
+#         custom_df.at[ind, :] = d
+#         ind+=1
 my_frames=[]
 names=[]
 durations=[]

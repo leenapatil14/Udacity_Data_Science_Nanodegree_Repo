@@ -4,6 +4,7 @@ from flask import render_template
 from wrangling_scripts.wrangle_data import return_counts,return_testsdata,return_agegroups,return_hosp,return_worldmap
 import pandas as pd
 
+
 @app.route('/getFigure', methods=['GET'])
 def index():
 
